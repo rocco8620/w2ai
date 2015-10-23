@@ -1,4 +1,4 @@
-# wta-interface
+# w2ai
 
 Web To Arduino Interface
 
