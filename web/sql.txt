@@ -1,0 +1,1 @@
+/* Contiene le credenziali per la connessione a mysql */
