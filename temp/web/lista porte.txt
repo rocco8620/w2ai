@@ -1,0 +1,13 @@
+Sensori:
+
+
+temperatura: 1001-1020
+umidità:     1021-1040
+luce:        1041-1060
+
+temperatura: 1061-1080
+temperatura: 1081-1100
+temperatura: 1101-1120
+temperatura: 1121-1140
+
+

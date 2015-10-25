@@ -1,0 +1,1 @@
+/* File per il logout degli utenti */

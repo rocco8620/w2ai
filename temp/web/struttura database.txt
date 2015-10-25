@@ -1,0 +1,9 @@
+database: utenti
+table: utenti
+
+| id | username | password | attivo | privs | 
+| 1  | rocco    | test     | 1      | 0     |
+
+table: arduino
+
+| id | ip | attivo | username | esterno |
