@@ -1,9 +1,8 @@
 database: utenti
 table: utenti
 
-| id | username | password | attivo | privs | 
-| 1  | rocco    | test     | 1      | 0     |
+| id | username | password | attivo | privs | esterno |      ip      |
+| 1  | rocco    | test     | 1      | 0     | 1       | 192.168.1.35 |
 
-table: arduino
 
-| id | ip | attivo | username | esterno |
+

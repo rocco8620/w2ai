@@ -1,1 +1,5 @@
-/* File per il logout degli utenti */
+<?php
+session_start();
+$_SESSION['logged'] = false;
+session_end();
+?>
