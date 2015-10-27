@@ -6,3 +6,4 @@ table: utenti
 
 
 
+insert into utenti (username,password,attivo,privs,esterno,ip)VALUES ('rocco','test',1,0,1,'192.168.1.35');

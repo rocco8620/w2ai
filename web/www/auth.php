@@ -4,10 +4,12 @@
 if (isset($_POST['username'])) $user = $_POST['username']; else exit();
 if (isset($_POST['password'])) $user = $_POST['password']; else exit(); */
 
-$user = "rocco";
-$pass = "testq";
+$user = "admin";
+$pass = "admin";
 
-include("../db_connect.txt"); // $conn : puntatore alla connessione 
+/* TODO: codice per determinare se l'utente è remoto o locale basandosi sull'ip */
+
+include("../db_connect.txt"); // $conn : puntatore alla connessione
 
 $stmt = mysqli_prepare($conn, "SELECT id,attivo,privs,esterno,ip FROM utenti WHERE username = ? AND password = ?");
 
@@ -31,12 +33,12 @@ else {
 		if ($esterno == true) { echo "1|1|1|".$privs; givePrivs(); }
 		else {		
 			if ($remoto == true) echo "1|1|0|0";
-			else echo { "1|1|1|0".$privs; givePrivs(); }
+			else {echo  "1|1|1|0".$privs; givePrivs(); }
 		}
 	} else echo "1|0|0|0";
 }
 
-echo $id."|".$attivo."|".$privs."|".$esterno;
+echo $id."|".$attivo."|".$privs."|".$esterno; /* TODO: Rimuovere questa riga quando finito*/
 
 mysqli_stmt_close($stmt);
 
