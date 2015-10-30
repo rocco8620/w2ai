@@ -4,12 +4,14 @@
 if (isset($_POST['username'])) $user = $_POST['username']; else exit();
 if (isset($_POST['password'])) $user = $_POST['password']; else exit(); */
 
-$user = "admin";
-$pass = "admin";
+$user = "prova";
+$pass = "provina";
+
+$pass = substr(sha1(sha1($pass)), 2, 30);
 
 /* TODO: codice per determinare se l'utente è remoto o locale basandosi sull'ip */
 
-if (substr($_SERVER['REMOTE_ADDR'], 0, 8) == "192.168.") $remoto = false;
+if (substr($_SERVER['REMOTE_ADDR'], 0, 8) == "127.0.0.2") $remoto = false;
 else $remoto = true;
 
 include("../db_connect.txt"); // $conn : puntatore alla connessione
@@ -25,15 +27,17 @@ mysqli_stmt_bind_result($stmt, $id, $attivo, $privs, $esterno, $ip);
 mysqli_stmt_fetch($stmt);
 
 function giveAdminPrivs() {
-$_SESSION['logged'] = true;
-$_SESSION['admin'] = true;
+	$_SESSION['logged'] = true;
+	$_SESSION['admin'] = true;
 }
 
-function giveUserPrivs() {
+function giveUserPrivs($ip) {
 	$_SESSION['ipArduino'] = $ip;
 	$_SESSION['logged'] = true;
 	$_SESSION['admin'] = false;
 }
+
+
 
 
 if ($id == null) echo "0|0|0|0"; // login ok | utente attivo | accessibile esterno | privilegi admin 
@@ -45,7 +49,7 @@ else {
 				giveAdminPrivs();
 			} else {
 				echo "1|1|1|0";
-				giveUserPrivs();
+				giveUserPrivs($ip);
 			}
 		}
 		else {		
@@ -56,14 +60,16 @@ else {
 					giveAdminPrivs();
 				} else {
 					echo "1|1|1|0";
-					giveUserPrivs();
+					giveUserPrivs($ip);
 				}
 			}
 		}
 	} else echo "1|0|0|0";
+
+
 }
 
-// echo $id."|".$attivo."|".$privs."|".$esterno; /* TODO: Rimuovere questa riga quando finito*/
+// echo $id."|".$attivo."|".$privs."|".$esterno."|".$ip; /* TODO: Rimuovere questa riga quando finito */
 
 mysqli_stmt_close($stmt);
 
