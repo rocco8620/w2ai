@@ -1,4 +1,7 @@
 <?php
 session_start();
-/* aggiornmento dati interfaccia utente */
+include("../includes/verify_auth.php");
+verify_user();
+include("../../db_connect.txt"); // $conn : puntatore alla connessione
+/* TODO: inserire connessione al database */
 ?>

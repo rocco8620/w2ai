@@ -1,6 +1,7 @@
 <?php
-/* session_start();
-if ($_SESSION['logged'] == true) { */
+/* session_start(); */
+include("../../../../includes/verify_auth.php"); 
+verify_user(); 
 
 // $ip = $_SESSION['ipArduino'];
 $ip = "127.0.0.1";

@@ -1,5 +1,7 @@
 <?php
 session_start();
-$_SESSION['logged'] = false;
-session_end();
+include("../includes/verify_auth.php"); 
+verify_admin();
+include("../../db_connect.txt"); // $conn : puntatore alla connessione
+/* TODO: inserire connessione al database */
 ?>

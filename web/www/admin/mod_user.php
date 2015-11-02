@@ -1,10 +1,11 @@
 <?php
 session_start();
-if (!(($_SESSION['logged'] == true) and ($_SESSION['admin'] == true))) exit();
+include("../includes/verify_admin.php"); 
+verify_admin();
 
-$action = $_GET['a']; // a: azione
+$action = $_GET['a']; // a: azione // 1:aggiungi utente | 2:rimuovi utente | 3:modifica utente
 
-include("../../db_connect.txt"); // $conn : cuntatore alla connessione
+include("../../db_connect.txt"); // $conn : puntatore alla connessione
 
 // parametri ok | operazione ok 
 
