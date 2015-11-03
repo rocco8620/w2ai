@@ -1,0 +1,4 @@
+temperatura
+sensore presenza ultrasuoni
+umidità
+sensore linea (luminosità?)

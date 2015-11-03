@@ -14,7 +14,7 @@ $pass = substr(sha1(sha1($pass)), 2, 30);
 if (substr($_SERVER['REMOTE_ADDR'], 0, 8) == "127.0.0.2") $remoto = false;
 else $remoto = true;
 
-include("../db_connect.txt"); // $conn : puntatore alla connessione
+include("includes/db_connect.php"); // $conn : puntatore alla connessione
 
 $stmt = mysqli_prepare($conn, "SELECT id,attivo,privs,esterno,ip FROM utenti WHERE username = ? AND password = ?");
 
