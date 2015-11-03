@@ -1,13 +1,13 @@
 <?php
 /* session_start(); */
-include("../../../../includes/verify_auth.php"); 
+include("../../../../includes/function.php"); 
 verify_user(); 
 
 // $ip = $_SESSION['ipArduino'];
 $ip = "127.0.0.1";
 if (isset($_GET['p'])) $porta = $_GET['p']; else exit();
 $porta = intval($porta);
-if ($porta < 1001 or $porta > 1020) exit(); // Verifica che la porta cada nell'intervallo.
+if (!isInRangeTemperatura($porta)) exit(); // Verifica che la porta cada nell'intervallo.
 
 
 $socket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);

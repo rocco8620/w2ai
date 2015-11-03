@@ -1,6 +1,5 @@
 <?php
-/* session_start();
-if ($_SESSION['logged'] == true) { */
+/* session_start(); */
 
 echo "Setter temp";
 

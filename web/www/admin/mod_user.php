@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("../includes/verify_admin.php"); 
+include("../includes/functions.php"); 
 verify_admin();
 
 $action = $_GET['a']; // a: azione // 1:aggiungi utente | 2:rimuovi utente | 3:modifica utente

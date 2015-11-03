@@ -45,8 +45,8 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
-#others
+#php storm
 .idea
 
 # Per permettere debug su piu' sistemi
-db_connect.txt
+db_connect.php
