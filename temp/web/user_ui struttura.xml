@@ -1,0 +1,25 @@
+<user_ui>
+	<user_info>
+		<nome>Arduino 1</nome>
+		<ip_arduino>192.168.50.35</ip_arduino>
+	</user_info>
+	<lista_widget_disponibile>
+		<widget>
+			<nome>Temperatura</nome>
+			<id>1</id>
+			<img>/img/widget/temperatura.png</img>
+		</widget>
+	</lista_widget_disponibile>
+	<lista_widget_attivi>
+		<widget>
+    		<nome>temp 1</nome>
+    		<indice>1</indice>
+    		<id>1</id>
+    		<max_temp>25</max_temp>
+    		<min_temp>18</min_temp>
+    		<freq_agg>2</freq_agg>
+    		<azione_max></azione_max>
+    		<azione_min></azione_min>
+    	</widget>
+	</lista_widget_attivi>
+</user_ui>

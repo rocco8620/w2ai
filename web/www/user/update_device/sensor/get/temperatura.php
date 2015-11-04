@@ -1,6 +1,6 @@
 <?php
 /* session_start(); */
-include("../../../../includes/function.php"); 
+include("../../../../includes/functions.php");
 verify_user(); 
 
 // $ip = $_SESSION['ipArduino'];

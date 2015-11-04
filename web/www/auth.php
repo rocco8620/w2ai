@@ -10,9 +10,8 @@ $pass = "provina";
 $pass = substr(sha1(sha1($pass)), 2, 30);
 
 /* TODO: codice per determinare se l'utente è remoto o locale basandosi sull'ip */
-
-if (substr($_SERVER['REMOTE_ADDR'], 0, 8) == "127.0.0.2") $remoto = false;
-else $remoto = true;
+include ("includes/functions.php");
+$remoto = isUserRemote();
 
 include("includes/db_connect.php"); // $conn : puntatore alla connessione
 
