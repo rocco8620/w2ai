@@ -1,0 +1,30 @@
+<?php
+
+{ //array generale
+	{ //dati utente 
+		"arduino-1" //nome
+		"192.168.0.1" //ip
+	}
+	{ //widget utilizzati | dimesione variabile
+		{ //widget x
+			1 //id
+			"nome"
+			1 //indice
+			1 //frequenza aggiornamento
+		}
+		{ //widget x
+			2 //id
+			"nome"
+			2 //indice
+			25 //max temp
+			18 // min temp
+			1 //frequenza aggiornamento
+			"action1" //azione max temp
+			"action2" //azione min temp
+		}
+	}
+}
+
+encodeUserUi(encodeUserData("arduino1","192.168.1.35"),)
+
+?>
