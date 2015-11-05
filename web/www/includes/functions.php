@@ -39,7 +39,9 @@ function isInRangeLuce($porta) {
 
 function isUserRemote() { // Assume che il server abbia un ip nella forma 192.168.xxx.xxx
     if (substr($_SERVER['REMOTE_ADDR'], 0, 8) == substr($_SERVER['SERVER_ADDR'], 0, 8)) return false;
-    else return true;
+    else return true; /* TODO: aggiungere nel file delle impostazioni la possibilità
+                         TODO: di cambiare da formato ip 192.168.xxx.xxx a 10.0.0.xxx
+                         TODO: e qui il controllo delle impostazioni*/
 }
 
 
