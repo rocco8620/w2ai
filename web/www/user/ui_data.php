@@ -4,5 +4,5 @@ include("../includes/functions.php");
 verify_user();
 include("../includes/db_connect.php"); // $conn : puntatore alla connessione
 /* TODO: inserire connessione al database */
-echo "<user_ui>";
+/* TODO: inserire il recupero dei dati dal database e encoding per il json */
 ?>

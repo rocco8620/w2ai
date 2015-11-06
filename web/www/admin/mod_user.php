@@ -5,7 +5,7 @@ verify_admin();
 
 $action = $_GET['a']; // a: azione // 1:aggiungi utente | 2:rimuovi utente | 3:modifica utente
 
-include("../../db_connect.txt"); // $conn : puntatore alla connessione
+include("../includes/db_connect.php"); // $conn : puntatore alla connessione
 
 // parametri ok | operazione ok 
 
