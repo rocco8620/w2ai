@@ -48,5 +48,5 @@ Temporary Items
 #php storm
 .idea
 
-# Per permettere debug su piu' sistemi
-db_connect.php
+# Per permettere debug su vari sistemi
+web/www/includes/db_connect.php
