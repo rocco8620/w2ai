@@ -1,0 +1,18 @@
+
+| 0   |  1 |    2   |   3  |     4    |    5     |     6    |        7        |        8        | 9 | 10 | 11 |
+| own | id | indice | nome | freq_agg | max_temp | min_temp | max_temp_action | min_temp_action |   |    |    |
+
+
+
+--: Temperatura 1
+	parametri:
+		-Frequenza aggiornamento
+
+--: Temperatura 2
+	parametri:
+		-Frequenza aggiornamento
+		-max_temp
+		-min_temp
+		-max_temp_action
+		-min_temp_action
+		

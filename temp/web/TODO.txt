@@ -1,1 +1,0 @@
-Scrivere il layout del file xml per il data_ui 
