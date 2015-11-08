@@ -3,7 +3,7 @@ session_start();
 include("../includes/functions.php"); 
 verify_admin();
 
-$action = $_GET['a']; // a: azione // 1:aggiungi utente | 2:rimuovi utente | 3:modifica utente
+if (isset($_GET['a']) $action = $_GET['a']; else exit(); // a: azione // 1:aggiungi utente | 2:rimuovi utente | 3:modifica utente
 
 include("../includes/db_connect.php"); // $conn : puntatore alla connessione
 
