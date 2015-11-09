@@ -3,7 +3,7 @@ session_start();
 include("../includes/functions.php"); 
 verify_admin();
 
-if (isset($_GET['a']) $action = $_GET['a']; else exit(); // a: azione // 1:aggiungi utente | 2:rimuovi utente | 3:modifica utente
+if (isset($_GET['a'])) $action = $_GET['a']; else exit(); // a: azione // 1:aggiungi utente | 2:rimuovi utente | 3:modifica utente
 
 include("../includes/db_connect.php"); // $conn : puntatore alla connessione
 
@@ -12,7 +12,6 @@ include("../includes/db_connect.php"); // $conn : puntatore alla connessione
 switch ($action) {
 	case "1": // aggiungi utente
 		if (isset($_POST['us'])) $username = $_POST['us']; else { echo "0|0"; exit(); }
-
 		if (isset($_POST['pa'])) { $password = $_POST['pa']; $password =  substr(sha1(sha1($pass)), 2, 30); }else { echo "0|0"; exit(); }
 		if (isset($_POST['at'])) $attivo = filter_var($_POST['at'], FILTER_VALIDATE_BOOLEAN); else { echo "0|0"; exit(); }
 		if (isset($_POST['pr'])) $privs = filter_var($_POST['pr'], FILTER_VALIDATE_BOOLEAN); else { echo "0|0"; exit(); }

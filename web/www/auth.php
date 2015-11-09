@@ -47,7 +47,7 @@ else {
 				giveAdminPrivs();
 			} else {
 				echo "1|1|1|0";
-				giveUserPrivs($ip, $own;
+				giveUserPrivs($ip, $own);
 			}
 		}
 		else {		

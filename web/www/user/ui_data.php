@@ -17,10 +17,11 @@ while ($rows = mysqli_fetch_array($result, MYSQLI_NUM)) {
 $result = mysqli_query($conn, "SELECT username,ip FROM utenti WHERE own = ".$own); /* sostituire con $_SESSION['own'] */
 $rows = mysqli_fetch_array($result, MYSQLI_NUM);
 
-print_r(encodeUi(encodeUserData($rows[0], $rows[1]), $widgets_list));
+echo json_encode(encodeUi(encodeUserData($rows[0], $rows[1]), $widgets_list));
 
 mysqli_free_result($result);
 
+mysqli_close($conn);
 
 ?>
 
