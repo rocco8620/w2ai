@@ -4,15 +4,14 @@ include("config.php");
 
 function isIpValid($ip){
     if ($ip == null) return false;
-    if ($ip) ;
- /* TODO: aggiungere altri controlli */
-    /* TODO: aggiungere nel file delle impostazioni la possibilità
-       TODO: di cambiare da formato ip 192.168.xxx.xxx a 10.0.0.xxx
-       TODO: e qui il controllo delle impostazioni */
+    if (substr_count($ip,'.') != 4) return false;
+    if (strlen($ip) < 8) return false;
+    if (substr_count($ip,' ') != 0) return false;
+    return true;
 }
 
 function verify_user(){
-	if (($_SESSION['logged'] == true) and ($_SESSION['admin'] !== true)) return null;
+	if (($_SESSION['logged'] == true) and ($_SESSION['admin'] != true)) return null;
 	else { echo "x"; exit(); }
 }
 
@@ -48,9 +47,8 @@ function isInRangeLuce($porta) {
 
 function isUserRemote() { // Assume che il server abbia un ip nella forma 192.168.xxx.xxx
     if (substr($_SERVER['REMOTE_ADDR'], 0, 8) == substr($_SERVER['SERVER_ADDR'], 0, 8)) return false;
-    else return true; /* TODO: aggiungere nel file delle impostazioni la possibilità
-                         TODO: di cambiare da formato ip 192.168.xxx.xxx a 10.0.0.xxx
-                         TODO: e qui il controllo delle impostazioni*/
+    else return true; /* TODO: aggiungere un controllo basato sul parsing dell'ip per
+                         TODO: controllare solo le due prime terzine dell'indirizzo */
 }
 
 

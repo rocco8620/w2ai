@@ -1,26 +1,7 @@
 <?php
 
-/* FUNZIONI INTERFACCIA AMMINISTRATORE */
-
-function encodeUiAdmin($users_data /* Da definire */) {
-
-}
-
-function encodeUsersSpecs($id, $user, $attivo, $privs, $esterno, $ip) {
-	return array($id, $user, $attivo, $privs, $esterno, $ip);
-}
-
-function addToUsersList($list, $user) {
-	if (!is_array($user)) return false;
-	if (!isset($list)) $list = array();
-	return array_pad($list, count($list) + 1, $user);
-}
-
-// --------------------------------------------------------------------------------------------------------------------------
-/* FUNZIONI INTERFACCIA UTENTE */
-
 function encodeUiUser($user_data, $widget_usati) {
-	return array($user_data, $widget_usati);
+	return json_encode(array($user_data, $widget_usati));
 }
 
 function encodeUserData($nome, $ip) {
@@ -35,12 +16,12 @@ function addToWidgetsList($list, $widget) {
 
 function encodeWidget($id) {
 	$id = intval($id);	
-	$arg_list = func_get_args(); // TODO: inserire controllo per evitare che siano passati meno valori di quelli richiesti
-								// TODO: aggiungere il controllo del numero di parametri dentro il singolo case
+	$arg_list = func_get_args();
 
 	switch($id) {
 
 		case 1: //temperatura 1
+			if (func_num_args() < 4) return array(0);
 			return array(	$arg_list[0], //id
 					$arg_list[1], //indice
 					$arg_list[2], //nome
@@ -49,6 +30,7 @@ function encodeWidget($id) {
 		break;
 		
 		case 2: //temperatura 2
+			if (func_num_args() < 8) return array(0);
 			return array(	$arg_list[0], //id
 					$arg_list[1], //indice
 					$arg_list[2], //nome
