@@ -2,6 +2,15 @@
 
 include("config.php");
 
+function isIpValid($ip){
+    if ($ip == null) return false;
+    if ($ip) ;
+ /* TODO: aggiungere altri controlli */
+    /* TODO: aggiungere nel file delle impostazioni la possibilità
+       TODO: di cambiare da formato ip 192.168.xxx.xxx a 10.0.0.xxx
+       TODO: e qui il controllo delle impostazioni */
+}
+
 function verify_user(){
 	if (($_SESSION['logged'] == true) and ($_SESSION['admin'] !== true)) return null;
 	else { echo "x"; exit(); }

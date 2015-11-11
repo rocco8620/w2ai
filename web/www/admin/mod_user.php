@@ -16,7 +16,7 @@ switch ($action) {
 		if (isset($_POST['at'])) $attivo = filter_var($_POST['at'], FILTER_VALIDATE_BOOLEAN); else { echo "0|0"; exit(); }
 		if (isset($_POST['pr'])) $privs = filter_var($_POST['pr'], FILTER_VALIDATE_BOOLEAN); else { echo "0|0"; exit(); }
 		if (isset($_POST['es'])) $esterno = filter_var($_POST['es'], FILTER_VALIDATE_BOOLEAN); else { echo "0|0"; exit(); }
-		if (isset($_POST['ip'])) $ip = $_POST['ip']; else { echo "0|0"; exit(); } /* TODO: verifcare che l'ip inserito sia valido */
+		if (isset($_POST['ip']) and isIpValid($_POST['ip']) ) $ip = $_POST['ip']; else { echo "0|0"; exit(); } /* TODO: verifcare che l'ip inserito sia valido */
 		
 		$stmt = mysqli_prepare($conn, "INSERT INTO utenti (username,password,attivo,privs,esterno,ip) VALUES (?,?,?,?,?,?)");
 		mysqli_stmt_bind_param($stmt, "ssiiis", $username, $password, $attivo, $privs, $esterno, $ip); 

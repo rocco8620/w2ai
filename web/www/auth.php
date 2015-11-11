@@ -67,8 +67,6 @@ else {
 
 }
 
-// echo $id."|".$attivo."|".$privs."|".$esterno."|".$ip; /* TODO: Rimuovere questa riga quando finito */
-
 mysqli_stmt_close($stmt);
 
 mysqli_close($conn);

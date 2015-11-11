@@ -1,6 +1,25 @@
 <?php
 
-function encodeUi($user_data, $widget_usati) {
+/* FUNZIONI INTERFACCIA AMMINISTRATORE */
+
+function encodeUiAdmin($users_data /* Da definire */) {
+
+}
+
+function encodeUsersSpecs($id, $user, $attivo, $privs, $esterno, $ip) {
+	return array($id, $user, $attivo, $privs, $esterno, $ip);
+}
+
+function addToUsersList($list, $user) {
+	if (!is_array($user)) return false;
+	if (!isset($list)) $list = array();
+	return array_pad($list, count($list) + 1, $user);
+}
+
+// --------------------------------------------------------------------------------------------------------------------------
+/* FUNZIONI INTERFACCIA UTENTE */
+
+function encodeUiUser($user_data, $widget_usati) {
 	return array($user_data, $widget_usati);
 }
 
@@ -8,16 +27,16 @@ function encodeUserData($nome, $ip) {
 	return array($nome, $ip);
 }
 
-function addToList($list, $widget) { 
+function addToWidgetsList($list, $widget) {
 	if (!is_array($widget)) return false;
 	if (!isset($list)) $list = array();
 	return array_pad($list, count($list) + 1, $widget);
-	
 }
 
 function encodeWidget($id) {
 	$id = intval($id);	
 	$arg_list = func_get_args(); // TODO: inserire controllo per evitare che siano passati meno valori di quelli richiesti
+								// TODO: aggiungere il controllo del numero di parametri dentro il singolo case
 
 	switch($id) {
 
@@ -42,6 +61,7 @@ function encodeWidget($id) {
 		break;
 	
 	}
+	return array(0);
 }
 
 ?>
