@@ -14,7 +14,7 @@ $remoto = isUserRemote();
 
 include("includes/db_connect.php"); // $conn : puntatore alla connessione
 
-$stmt = mysqli_prepare($conn, "SELECT id,attivo,privs,esterno,ip,own FROM utenti WHERE username = ? AND password = ?");
+$stmt = mysqli_prepare($conn, "SELECT own,attivo,privs,esterno,ip FROM utenti WHERE username = ? AND password = ?");
 
 mysqli_stmt_bind_param($stmt, "ss", $user, $pass); 
 
@@ -36,9 +36,7 @@ function giveUserPrivs($ip, $own) {
 }
 
 
-
-
-if ($id == null) echo "0|0|0|0"; // login ok | utente attivo | accessibile esterno | privilegi admin 
+if ($own == null) echo "0|0|0|0"; // login ok | utente attivo | accessibile esterno | privilegi admin
 else {
 	if ($attivo == true) {
 		if ($esterno == true) {

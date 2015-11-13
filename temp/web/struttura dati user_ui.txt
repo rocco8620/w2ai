@@ -25,6 +25,5 @@
 	}
 }
 
-encodeUserUi(encodeUserData("arduino1","192.168.1.35"),)
 
 ?>
