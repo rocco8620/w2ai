@@ -30,14 +30,26 @@ switch ($action) {
 		if (isset($_POST['own'])) $own = $_POST['own']; else { echo "0|0"; exit(); }
 		
 		$stmt = mysqli_prepare($conn, "DELETE * FROM utenti WHERE own = ? LIMIT 1");
-		mysqli_stmt_bind_param($stmt, "i", $id); 
+		mysqli_stmt_bind_param($stmt, "i", $own);
 		$result = mysqli_stmt_execute($stmt);
 		if ($result == false) echo "1|0";
 		else echo "1|1";
 		break;
 	case "3": // modifica utente
 		if (isset($_POST['own'])) $own = $_POST['own']; else { echo "0|0"; exit(); }
-		/* TODO: codice per modificare l'utente e ritornare un risultato sull'esito dell'operazione */
+		if (isset($_POST['us'])) $username = $_POST['us']; else { echo "0|0"; exit(); }
+		if (isset($_POST['pa'])) { $password = $_POST['pa']; $password =  substr(sha1(sha1($pass)), 2, 30); }else { echo "0|0"; exit(); }
+		if (isset($_POST['at'])) $attivo = filter_var($_POST['at'], FILTER_VALIDATE_BOOLEAN); else { echo "0|0"; exit(); }
+		if (isset($_POST['pr'])) $privs = filter_var($_POST['pr'], FILTER_VALIDATE_BOOLEAN); else { echo "0|0"; exit(); }
+		if (isset($_POST['es'])) $esterno = filter_var($_POST['es'], FILTER_VALIDATE_BOOLEAN); else { echo "0|0"; exit(); }
+		if (isIpValid($_POST['ip'])) $ip = $_POST['ip']; else { echo "0|0"; exit(); }
+
+		$stmt = mysqli_prepare($conn, "UPDATE utenti SET username = ?, password = ?, attivo = ?, privs = ?, esterno = ?, ip = ? WHERE own = ?");
+		mysqli_stmt_bind_param($stmt, "ssiiisi", $username, $password, $attivo, $privs, $esterno, $ip, $own);
+		$result = mysqli_stmt_execute($stmt);
+		if ($result == false) echo "1|0";
+		else echo "1|1";
+		/* TODO: controllare che il codice sia corretto */
 		break;
 }
 
