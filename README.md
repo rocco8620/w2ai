@@ -10,4 +10,4 @@ Sito web che consente di comunicare con le schede arduino da remoto grazie all'a
 
 - Web server: Per usare il sito web e' necessario avere a disposizione l'interprete php e un browser che supporti javascript. La cartella "/web/www"  e' da considerarsi la web-root del sito.
 
-Progetto ideato da Rocco Mancin e realizzato da Rocco Mancin (@rocco8620), Michele Pittino (@Magornux)
+Progetto ideato da Rocco Mancin e realizzato da Rocco Mancin (@rocco8620)
